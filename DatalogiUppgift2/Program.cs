@@ -13,7 +13,6 @@ namespace DatalogiUppgift2
             FileItems fileItem = new FileItems();
             // List to store divided txt-file-arrays
             
-
             // Adds txt-files
             string textFredskalla = System.IO.File.ReadAllText(@"C:\Users\User\source\repos\DatalogiUppgift2\DatalogiUppgift2\fredskalla.txt").ToLower();
             string textKaladium = System.IO.File.ReadAllText(@"C:\Users\User\source\repos\DatalogiUppgift2\DatalogiUppgift2\kaladium.txt").ToLower();
@@ -24,16 +23,15 @@ namespace DatalogiUppgift2
             string[] textKaladiumDiv = textKaladium.Split(new char[] { ' ', ',','.' }, StringSplitOptions.RemoveEmptyEntries);
             string[] textMonsteraDiv = textMonstera.Split(new char[] { ' ', ',', '.' }, StringSplitOptions.RemoveEmptyEntries);
 
+
+            //Creates a list of File-Items
             List<FileItems> dividedFiles = new List<FileItems>();
 
             dividedFiles.Add(new FileItems() { Id = 0, Title = "Kaladium", Searchresult = 0, text = textKaladiumDiv });
             dividedFiles.Add(new FileItems() { Id = 1, Title = "Fredskalla", Searchresult = 0, text = textFredskallaDiv });
             dividedFiles.Add(new FileItems() { Id = 2, Title = "Monstera", Searchresult = 0, text = textMonsteraDiv });
 
-            // List of arrays
-
             WordProgram(dividedFiles);
-
 
         }
 
@@ -83,7 +81,6 @@ namespace DatalogiUppgift2
         }
 
         // 1 - Starts a word search
-
         private static void WordSeachInput(List<FileItems> txtfiles)
         {
             bool runSearchInput = true;
@@ -200,7 +197,6 @@ namespace DatalogiUppgift2
         }
 
         // 3 - Sorts words and shows the x amount of words to user
-
         public static void SortWordsInFiles(List<FileItems> txtfiles)
         {
             bool runSortedWords = true;
@@ -227,7 +223,6 @@ namespace DatalogiUppgift2
         }
 
         // 3 - Sorts words in alphabetical order in every file - Time complexity: O(n^2+1+5)
-
         public static void SortsWordInAlphabeticalOrder(List<FileItems> txtfiles, int showWords)
         {
             List<string> words = new List<string>();
